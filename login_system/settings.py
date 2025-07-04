@@ -93,14 +93,11 @@ if os.getenv('VERCEL'):  # vercel
     }
 else:
     DATABASES = {
-      'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv('DB_NAME', 'mydb'),
-            'USER': os.getenv('DB_USER', 'postgres'),
-            'PASSWORD': os.getenv('DB_PASSWORD', 'root'),
-            'HOST': os.getenv('DB_HOST', '127.0.0.1'),
-            'PORT': os.getenv('DB_PORT', '5432'),
-          }
+      'default': dj_database_url.config(
+            default="postgres://postgres.qduwmilqwnvyzkcpytie:Ihateniggers123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require",
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
 
 
