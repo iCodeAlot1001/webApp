@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'login_system.wsgi.application'
 if os.getenv('VERCEL'):  # vercel 
     DATABASES = {
         'default': dj_database_url.config(
-            default=os.getenv('SUPRABASE_DATABASE_URL'),
+            default="postgres://postgres.qduwmilqwnvyzkcpytie:Ihateniggers123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x",
             conn_max_age=600,
             ssl_require=True
         )
