@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-lt^6**_x6^qpmy08s4o7-_^k3mi!a29#kypi)016$e-t2eq_ra
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.vercel.app',
+    'natehiggersv3.vercel.app',
     'localhost',
     '127.0.0.1',
     '.now.sh',
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'login_system.wsgi.application'
 if os.getenv('VERCEL'):  # vercel 
     DATABASES = {
         'default': dj_database_url.config(
-            default="postgres://postgres.qduwmilqwnvyzkcpytie:Ihateniggers123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x",
+            default="postgres://postgres.qduwmilqwnvyzkcpytie:Ihateniggers123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require",
             conn_max_age=600,
             ssl_require=True
         )
