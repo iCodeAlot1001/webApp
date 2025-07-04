@@ -1,1 +1,7 @@
 .vercel
+.venv
+venv
+*.pyc
+__pycache__
+.env
+*.sqlite3
