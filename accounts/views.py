@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserProfileForm
 from django.contrib import messages
-import bcrypt
 
 def register(request):
     if request.method == 'POST':
