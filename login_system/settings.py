@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'login_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if os.getenv('VERCEL'):  # vercel
+if os.getenv('VERCEL'):  # vercel 
     DATABASES = {
         'default': dj_database_url.config(
             default=os.getenv('SUPRABASE_DATABASE_URL'),
