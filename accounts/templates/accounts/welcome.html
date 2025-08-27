@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{% static 'static/static/css/welcome.css' %}" rel="stylesheet">  <!-- ALL GOODS --> 
+</head> 
+<style>
+html, body {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(1deg, #05041dff, #7e52a0);
+    height: 100vh;
+}
+.text-nav {
+    color: #e9e9f5ff;
+}
+.nigga {
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);    
+    font-size: 35px;
+    color: #05031eff;
+}
+.subtitle {
+    padding-top:4%;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.we-got-you {
+    color: #885db6ff;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    padding-bottom: 20px;
+}
+.searchName {
+    
+    border-radius: 30px;
+    width: 60vh;
+    margin: 3vh;
+    padding: 10px;
+    color: black;
+}
+.searchName::placeholder {
+    color: #3b3838ff;
+    padding:10px;
+}
+
+    @media (max-width: 768px) {
+      .searchName {
+        width: 80%;            /* Mobile: 80% of screen width */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .searchName {
+        width: 100%;           /* Full width on very small screens */
+        max-width: 300px;      /* But don't exceed 300px */
+      }
+    }
+
+
+</style>
+
+<body class="bg-body">
+    <div class="container mx-auto p-4">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="bg-{{ message.tags }}-100 border border-{{ message.tags }}-400 text-{{ message.tags }}-700 px-4 py-3 rounded">
+                    {{ message }}
+                </div>
+
+    </div>
+
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+
+</body>
+
+</html>

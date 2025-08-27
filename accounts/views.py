@@ -36,7 +36,10 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('welcome-home')
+
+def landingPage(request):
+    return render(request, 'accounts/welcome-home.html')
 
 @login_required
 def home(request):

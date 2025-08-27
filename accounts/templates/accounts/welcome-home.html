@@ -1,0 +1,26 @@
+{% extends 'accounts/welcome.html' %}
+{% block content %}
+    <div class="nav flex justify-between items-center p-6">
+        <div class="logo text-2xl font-bold title-nav"><h2 class="nigga">HackAVolt</h2></div>
+        <ul class="flex space-x-6">
+            <li><a href="#" class="text-nav hover:text-gray-900">Home</a></li>
+            <li><a href="#" class="text-nav hover:text-gray-900">Dox</a></li>
+            <li><a href="#" class="text-nav hover:text-gray-900">Tools</a></li>
+            <li><a href="#" class="text-nav hover:text-gray-900">About Us</a></li>
+            <li><a href="#" class="text-nav hover:text-gray-900">Idk</a></li>
+        </ul>
+        <div class="buttons space-x-4">
+            <a href="/login" class="inline-block px-4 py-2 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300">Login</a>
+            <a href="/aboutUs" class="inline-block px-4 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800">Contact Us</a>
+        </div>
+    </div>
+    <div class="hero flex flex-col items-center text-center p-10">
+        <h1 class="text-5xl font-bold subtitle"><span class="text-blue-700">Searching for a</span> <span class="text-gray-900">Guy</span>?</h1>
+        <h1 class="text-5xl font-bold we-got-you">We Got You.</h1>
+        <input type="text" placeholder="Enter a name" class="searchName">
+        <a href="/login" class="mt-6 inline-block px-6 py-3 bg-blue-700 text-white rounded-full hover:bg-blue-800 text-lg">Search Now</a>
+         
+    </div>
+
+
+{% endblock %}
