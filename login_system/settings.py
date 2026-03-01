@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 import dj_database_url
+import configparser
+import psycopg2
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -35,7 +37,6 @@ ALLOWED_HOSTS = [
     '.now.sh',
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'application',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +81,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'login_system.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+dtb = config['database']
 
 if os.getenv('VERCEL'):  # vercel 
     DATABASES = {
@@ -93,13 +98,15 @@ if os.getenv('VERCEL'):  # vercel
     }
 else:
     DATABASES = {
-      'default': dj_database_url.config(
-            default="postgres://postgres.qduwmilqwnvyzkcpytie:Ihateniggers123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require",
-            conn_max_age=600,
-            ssl_require=True
-        )
+      'default': {
+        'ENGINE': dtb['engine'],
+        'NAME': dtb['name'],
+        'USER': dtb['user'],
+        'PASSWORD': dtb['passw'],
+        'HOST': dtb['host'],
+        'PORT': dtb['port']
+      }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
